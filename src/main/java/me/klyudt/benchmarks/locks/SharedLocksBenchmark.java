@@ -54,7 +54,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * </ol>
  *
  * <p>Benchmarking results:
- * <br># Run complete. Total time: 00:17:48
+ * <br># 8 threads
  * <br>Benchmark                          Mode  Samples     Score  Score error  Units
  * <br>spinLock_lockUnlockA               avgt      100  1405.013       40.093  ns/op
  * <br>spinLock_lockUnlockALockUnlockB    avgt      100  2887.881       33.544  ns/op
@@ -64,6 +64,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <br>syncLock_lockUnlockALockUnlockB    avgt      100  2364.621       59.594  ns/op
  * <br>syncLock_lockUnlockB               avgt      100  1451.079        9.760  ns/op
  * <br>syncLock_lockUnlockBLockUnlockA    avgt      100  2554.617       54.299  ns/op
+ * <br># 40 threads
+ * <br>Benchmark                          Mode  Samples       Score  Score error  Units
+ * <br>spinLock_lockUnlockA               avgt       50    7842.947      116.478  ns/op
+ * <br>spinLock_lockUnlockALockUnlockB    avgt       50  146582.986   150250.277  ns/op
+ * <br>spinLock_lockUnlockB               avgt       50    6927.919      465.643  ns/op
+ * <br>spinLock_lockUnlockBLockUnlockA    avgt       50  394253.295   683460.013  ns/op
+ * <br>syncLock_lockUnlockA               avgt       50    7887.058      115.669  ns/op
+ * <br>syncLock_lockUnlockALockUnlockB    avgt       50   13869.726      277.180  ns/op
+ * <br>syncLock_lockUnlockB               avgt       50    7653.966       43.491  ns/op
+ * <br>syncLock_lockUnlockBLockUnlockA    avgt       50   13612.982      161.783  ns/op
  *
  * <p>For JMH benchmark framework usage examples see:
  * http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
