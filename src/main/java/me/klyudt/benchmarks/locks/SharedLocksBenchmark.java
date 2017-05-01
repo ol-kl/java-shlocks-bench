@@ -53,28 +53,21 @@ import java.util.concurrent.atomic.AtomicInteger;
  *  <li>SynchronizedLock based on intrinsic locks
  * </ol>
  *
- * <p>Benchmarking results:
+ * <p>Benchmarking results summary:
+ * <br># 2 threads
+ * <br>Benchmark                          Mode  Samples       Score  Score error  Units
+ * <br>spinLock_lockUnlockALockUnlockB    avgt       50     370.688       14.591  ns/op
+ * <br>syncLock_lockUnlockALockUnlockB    avgt       50     554.931        5.801  ns/op
  * <br># 8 threads
- * <br>Benchmark                          Mode  Samples     Score  Score error  Units
- * <br>spinLock_lockUnlockA               avgt      100  1405.013       40.093  ns/op
- * <br>spinLock_lockUnlockALockUnlockB    avgt      100  2887.881       33.544  ns/op
- * <br>spinLock_lockUnlockB               avgt      100  1514.518       39.093  ns/op
- * <br>spinLock_lockUnlockBLockUnlockA    avgt      100  2879.916       24.103  ns/op
- * <br>syncLock_lockUnlockA               avgt      100  1451.663       10.291  ns/op
- * <br>syncLock_lockUnlockALockUnlockB    avgt      100  2364.621       59.594  ns/op
- * <br>syncLock_lockUnlockB               avgt      100  1451.079        9.760  ns/op
- * <br>syncLock_lockUnlockBLockUnlockA    avgt      100  2554.617       54.299  ns/op
+ * <br>Benchmark                          Mode  Samples       Score  Score error  Units
+ * <br>spinLock_lockUnlockALockUnlockB    avgt      100    2887.881       33.544  ns/op
+ * <br>syncLock_lockUnlockALockUnlockB    avgt      100    2364.621       59.594  ns/op
  * <br># 40 threads
  * <br>Benchmark                          Mode  Samples       Score  Score error  Units
- * <br>spinLock_lockUnlockA               avgt       50    7842.947      116.478  ns/op
  * <br>spinLock_lockUnlockALockUnlockB    avgt       50  146582.986   150250.277  ns/op
- * <br>spinLock_lockUnlockB               avgt       50    6927.919      465.643  ns/op
- * <br>spinLock_lockUnlockBLockUnlockA    avgt       50  394253.295   683460.013  ns/op
- * <br>syncLock_lockUnlockA               avgt       50    7887.058      115.669  ns/op
  * <br>syncLock_lockUnlockALockUnlockB    avgt       50   13869.726      277.180  ns/op
- * <br>syncLock_lockUnlockB               avgt       50    7653.966       43.491  ns/op
- * <br>syncLock_lockUnlockBLockUnlockA    avgt       50   13612.982      161.783  ns/op
  *
+ * <p>Conclusion: use SpinLock when num of contending threads <=4, otherwise favour SpinLock.
  * <p>For JMH benchmark framework usage examples see:
  * http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
  *
